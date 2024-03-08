@@ -1,13 +1,34 @@
 <!-- import_complete.html -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Import Complete</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h1>Data Imported Successfully</h1>
-    <!-- Add code to display imported data here -->
+    <h1>Data from SQL Server Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Sales Manager</th>
+                <th>Customer No.</th>
+                <th>Sales £</th>
+                <!-- Add more headers for additional fields -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+                <tr>
+                    <td>{{ item.Sales_person }}</td>
+                    <td>{{ item.Cust_no }}</td>
+                    <td>{{ item.Sales_Amount }}</td>
+                    <!-- Add more columns for additional fields -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

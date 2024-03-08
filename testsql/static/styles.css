@@ -1,0 +1,23 @@
+/* styles.css */
+table {
+    width: 50%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #09994a;
+    width: 25%; /* Specify column width for header */
+}
+td {
+    width: 25%; /* Specify column width for data cells */
+}
+
+
+tr:hover {
+    background-color: #4cca68;
+}
