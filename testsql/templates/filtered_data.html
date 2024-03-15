@@ -9,7 +9,20 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h1>Data from SQL Server Table</h1>
+    <h1> SQL Server Table</h1>
+    <form method="GET" action="{% url 'filtered_data' %}">
+        <!-- Render form fields -->
+        <label for="id_field1_filter">Field 1 Filter:</label>
+        {{ form.field1_filter }}
+        <br>
+        <label for="id_field2_filter">Field 2 Filter:</label>
+        {{ form.field2_filter }}
+        <br>
+        <!-- Add more fields as needed -->
+
+        <!-- Submit button -->
+        <button type="submit">Apply Filters</button>
+    </form>
     <table>
         <thead>
             <tr>
@@ -20,7 +33,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for item in data %}
+            {% for item in queryset %}
                 <tr>
                     <td>{{ item.Sales_person }}</td>
                     <td>{{ item.Cust_no }}</td>

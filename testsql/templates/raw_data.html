@@ -1,0 +1,59 @@
+<!-- import_complete.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Import Complete</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1> Data from SQL Server</h1>
+
+    <div id="filters">
+        <label for="filter-input">Sales person:</label>
+        <input type="text" id="filter-input">
+        <label for="filter-input">Cust_no:</label>
+        <input type="text" id="filter-input">
+    </div>
+    
+    <table>
+        <thead>
+            <tr class = 'tbl_head'>
+                <th>Sales Manager</th>
+                <th>Customer No.</th>
+                <th>Sales £</th>
+                <!-- Add more headers for additional fields -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+                <tr>
+                    <td>{{ item.Sales_person }}</td>
+                    <td>{{ item.Cust_no }}</td>
+                    <td>{{ item.Sales_Amount }}</td>
+                    <!-- Add more columns for additional fields -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        // JavaScript code for filtering the table data
+        document.getElementById('filter-input').addEventListener('input', function() {
+            const searchText = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#data-table tbody tr');
+
+            rows.forEach(row => {
+                const rowData = row.textContent.toLowerCase();
+                if (rowData.includes(searchText)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

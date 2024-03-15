@@ -10,8 +10,12 @@ th, td {
     border-bottom: 1px solid #ddd;
 }
 th {
-    background-color: #09994a;
+    background-color: #193fa7;    
     width: 25%; /* Specify column width for header */
+}
+
+.tbl_head{
+    color: #ddd;
 }
 td {
     width: 25%; /* Specify column width for data cells */
@@ -19,5 +23,5 @@ td {
 
 
 tr:hover {
-    background-color: #4cca68;
+    background-color: #d60f5b;
 }
